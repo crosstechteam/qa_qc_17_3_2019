@@ -1,5 +1,5 @@
-<?php 
-
+<?php
+use Step\Acceptance\Admin as AdminTester;
 class CrossTechCest
 {
     public function _before(AcceptanceTester $I)
@@ -7,7 +7,9 @@ class CrossTechCest
     }
 
     // tests
-    public function tryToTest(AcceptanceTester $I)
+    public function tryToTest(Step\Acceptance\Admin $I, $scenario)
     {
+        $I = new AdminTester($scenario);
+        $I->loginAsAdmin();
     }
 }
